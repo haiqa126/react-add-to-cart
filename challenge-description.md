@@ -39,6 +39,3 @@ The objective of this challenge is to build a catalog page for some products of 
 - We're looking for a front-end developer who knows how to build layouts and knows a lot about JavaScript. Use this as an opportunity to show us how good you are on both areas.
 - Do not forget to document the process needed to run and build your app. Or else how are we going to evaluate your work if we can't init the project on our machines?
 
-## Got questions?
-
-- The challenge is harder than you anticipated? Would you like to show your experience with something else? Contact us by opening an _issue_.
