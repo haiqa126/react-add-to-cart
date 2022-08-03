@@ -28,7 +28,7 @@ export default function CartItem(props){
      </Card>
     </Box>
 
-<h2>Your total is:{props.total} </h2>
+
     
     </>
 

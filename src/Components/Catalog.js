@@ -6,8 +6,11 @@ import Button from '@mui/material/Button';
 
 
 function Catalog() {
+
   const [data,setData]=useState([]);
   const [cart, setCart] = useState([]);
+  const [total, setTotal] = useState(0);
+
   useEffect(()=>{
  
   console.log(cart)
@@ -35,7 +38,16 @@ function Catalog() {
   }
   useEffect(()=>{
     getData()
+    
   },[])
+
+  useEffect(()=>{
+   
+    localStorage.setItem('total',total)
+  },[total])
+
+
+
   return (
     <>
 <NavBar/>
@@ -49,6 +61,7 @@ function Catalog() {
          Price:item.actual_price,
           ImageUrl:item.image}])
 
+          setTotal(item.actual_price+total);
 
 
 
