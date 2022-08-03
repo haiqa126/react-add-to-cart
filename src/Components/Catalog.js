@@ -9,10 +9,10 @@ function Catalog() {
   const [data,setData]=useState([]);
   const [cart, setCart] = useState([]);
   useEffect(()=>{
-  //console.log("I am the cart")
+ 
   console.log(cart)
   localStorage.setItem('cart',JSON.stringify(cart));
-  //console.log("the local storage print is below")
+  
   console.log(localStorage.getItem('cart'))
 },[cart])
   const getData=()=>{

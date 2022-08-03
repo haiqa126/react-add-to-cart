@@ -1,47 +1,34 @@
 import React, {useState,useEffect } from 'react';
-
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import '../assets/css/Catalog.css';
-import Cart from './Cart';
 
 
 
-export default function Item(props){
+
+export default function CartItem(props){
+
 
     return(
     <>
     <Box sx={{width:200}}>
     <Card variant="outlined">
  <CardContent>
-  <img src={props.data.image}></img>
+  <img src={props.data.ImageUrl}></img>
       <Typography sx={{ fontSize: 14,color:'Black' }} >
-        Name:{props.data.name}
+        Name:{props.data.Name}
       </Typography>
       
       <Typography sx={{fontSize: 14,color:'Blue'  }} >
-      Price:{props.data.actual_price}
+      Price:{props.data.Price}
       </Typography >
-
-
-      {props.data.sizes.map((size)=>
-      <>
-      <Typography className='size'>
-{size.size}
-</Typography>
-      </>
-
-      )}
-      
-
     </CardContent>
      </Card>
     </Box>
 
+<h2>Your total is:{props.total} </h2>
     
     </>
 
