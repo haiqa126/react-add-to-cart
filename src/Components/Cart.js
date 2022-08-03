@@ -1,57 +1,28 @@
-import React, {useState,useEffect} from 'react';
-import CartItem from './CartItem';
+import React, { Component,useState,useEffect} from 'react';
+
 
 export default function Cart(){
-    const [total, setTotal] = useState(0);
     const [cart, setCart] = useState([]);
     const getItems=()=>{
-  
+    console.log("to check whats in the cart")
 console.log(JSON.parse(localStorage.getItem("cart")))
 console.log("setting the local storage to the cart")
-
+console.log("to test")
 setCart(JSON.parse(localStorage.getItem("cart")))
-
 
     }
     useEffect(()=>{
         getItems()
-        console.log("to check whats in the cart")
-        console.log(cart);
-//   setTotal(cart.map=(p)=>{
-// total=p.Price+total;
-//   })
-  console.log(total);
-
-      
       },[])
-   
+
    return(
     <>
     <h1>Welcome to the Cart</h1>
 
 {
- 
-//calculating the total
- cart && cart.length>0 && cart.map((i)=>
-    
-       
-     
-    setTotal(total+parseInt(i.Price))
-   
-     
-       
-       )
 
-}
-{
-
-    cart && cart.length>0 && cart.map((i)=>
-    
-       
-        <CartItem data={i} total={total} />
-    
-   
-     
+    cart && cart.length>0 && cart.map((item)=>
+      console.log(item)
        
        )
      }
