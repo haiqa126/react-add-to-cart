@@ -36,7 +36,7 @@ setCart(JSON.parse(localStorage.getItem("cart")))
     
        
      
-    setTotal(total+i.Price)
+    setTotal(total+parseInt(i.Price))
    
      
        
