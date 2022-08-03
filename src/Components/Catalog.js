@@ -2,10 +2,19 @@ import React,{useState,useEffect} from 'react';
 import Item from './Item';
 import '../assets/css/Catalog.css';
 import NavBar from './NavBar';
+import Button from '@mui/material/Button';
 
 
 function Catalog() {
   const [data,setData]=useState([]);
+  const [cart, setCart] = useState([]);
+  useEffect(()=>{
+  //console.log("I am the cart")
+  console.log(cart)
+  localStorage.setItem('cart',JSON.stringify(cart));
+  //console.log("the local storage print is below")
+  console.log(localStorage.getItem('cart'))
+},[cart])
   const getData=()=>{
     fetch('products.json'
     ,{
@@ -31,11 +40,19 @@ function Catalog() {
     <>
 <NavBar/>
      {
-       data && data.length>0 && data.map((item)=>
+       data && data.length>0 && data.map((item, key)=>
        <>
-       <div className="items">
-       <Item key={item.style} data={item}/>
+       <div key={key}  className="items">
+       <Item key={key}  data={item}/>
+        <Button sx={{ fontSize: 14,color:'Black',borderStyle:'solid'}} onClick={()=>{
+        setCart( (cr) => [...cr, { Name:item.name,
+         Price:item.actual_price,
+          ImageUrl:item.image}])
 
+
+
+
+      }} >Add to Cart</Button>
        </div>
        
        </>

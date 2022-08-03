@@ -15,19 +15,19 @@ export default function Item(props){
 
   //defining the cart 
  //Cart is an array of items
- const [cart, setCart] = useState([]);
-  const addToCart = (el) => setCart( [...cart, el],console.log("i am the cart"));
-  console.log(cart);
+ // const [cart, setCart] = useState([]);
+  // const addToCart = (cart => setCart( [...cart, el]));
+  //console.log(cart);
 
 
 
- useEffect(()=>{
-  console.log("I am the cart")
-  console.log(cart)
-  localStorage.setItem('cart',JSON.stringify(cart));
-  console.log("the local storage print is below")
-  console.log(localStorage.getItem('cart'))
-},[cart])
+//  useEffect(()=>{
+//   //console.log("I am the cart")
+//   console.log(cart)
+//   //localStorage.setItem('cart',JSON.stringify(cart));
+//   //console.log("the local storage print is below")
+//   //console.log(localStorage.getItem('cart'))
+// },[cart])
     return(
     <>
     {/* {console.log("value of props:"+props)} */}
@@ -57,20 +57,7 @@ export default function Item(props){
       
 
     </CardContent>
-    <CardActions>
-      <Button sx={{ fontSize: 14,color:'Black',borderStyle:'solid'}} onClick={()=>{
-
-
-addToCart({ Name:props.data.name,
-   Price:props.data.actual_price,
-    ImageUrl:props.image})
-
-
-
-
-
-      }} >Add to Cart</Button>
-    </CardActions> </Card>
+     </Card>
     </Box>
 
     
