@@ -7,6 +7,7 @@ export default function Cart(){
     console.log("to check whats in the cart")
 console.log(localStorage.getItem("cart"))
 console.log("setting the local storage to the cart")
+console.log("to test")
 setcart_items(localStorage.getItem("cart"))
 
     }
