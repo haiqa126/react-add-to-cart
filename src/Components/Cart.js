@@ -2,17 +2,17 @@ import React, { Component,useState,useEffect} from 'react';
 
 
 export default function Cart(){
-    const [cart_items, setcart_items] = useState([]);
-    const get_items=()=>{
+    const [cart, setCart] = useState([]);
+    const getItems=()=>{
     console.log("to check whats in the cart")
-console.log(localStorage.getItem("cart"))
+console.log(JSON.parse(localStorage.getItem("cart")))
 console.log("setting the local storage to the cart")
 console.log("to test")
-setcart_items(localStorage.getItem("cart"))
+setCart(JSON.parse(localStorage.getItem("cart")))
 
     }
     useEffect(()=>{
-        get_items()
+        getItems()
       },[])
    
    return(
@@ -21,8 +21,8 @@ setcart_items(localStorage.getItem("cart"))
 
 {
 
-    cart_items && cart_items.length>0 && cart_items.map((item)=>
-      console.log()
+    cart && cart.length>0 && cart.map((item)=>
+      console.log(item)
        
        )
      }
