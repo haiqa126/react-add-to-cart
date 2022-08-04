@@ -39,7 +39,7 @@ cart && cart.length>0 && cart.map((item)=>
     </div>
 
 
-<h3 ><b>Your total is:</b>£{localStorage.getItem("total")} </h3>
+<h3 ><b>Your total is:</b>£{parseFloat(localStorage.getItem("total")).toFixed(2)} </h3>
     </>
 
   

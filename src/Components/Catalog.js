@@ -13,17 +13,21 @@ function Catalog() {
   const [total, setTotal] = useState(0);
 
   useEffect(()=>{
- 
-  console.log(cart)
-  const item = {
-    products: cart,
-    expiry: new Date().getTime() + 1000,
-}
+    getData()
+    //console.log(JSON.parse(localStorage.getItem("cart")));
+    setCart( JSON.parse(localStorage.getItem("cart")));
+    setTotal(parseFloat(localStorage.getItem('total')));
+    //console.log(total);
+  },[])
 
-  localStorage.setItem('cart',JSON.stringify(item));
-  
-  console.log(localStorage.getItem('cart'))
-},[cart])
+  useEffect(()=>{
+    localStorage.setItem('cart',JSON.stringify(cart));
+  },[cart])
+
+  useEffect(()=>{
+   localStorage.setItem('total',total)
+  },[total])
+
   const getData=()=>{
     
     fetch('products.json'
@@ -35,26 +39,14 @@ function Catalog() {
     }
     )
       .then(function(response){
-        console.log(response)
+        //console.log(response)
         return response.json();
       })
       .then(function(myJson) {
-        console.log(myJson);
+        //console.log(myJson);
         setData(myJson.products)
       });
   }
-  useEffect(()=>{
-    getData()
-    setCart( (cr) => [...cr,JSON.parse(localStorage.getItem("cart"))])
-    setTotal(localStorage.getItem('total'));
-    console.log(cart) 
-  },[])
-
-  useEffect(()=>{
-   
-    localStorage.setItem('total',total)
-  },[total])
-
 
 
   return (
@@ -66,15 +58,14 @@ function Catalog() {
        <div key={key}  className="items">
        <Item key={key}  data={item}/>
         <Button sx={{ fontSize: 14,color:'Black',borderStyle:'solid'}} onClick={()=>{
-        setCart( (cr) => [...cr, { Name:item.name,
-         Price:item.actual_price,
-          ImageUrl:item.image}])
+        setCart( (cr) => [...cr, {
+          Name:item.name,
+          Price:item.actual_price,
+          ImageUrl:item.image
+        }])
 
-          setTotal(item.actual_price+total);
-
-
-
-      }} >Add to Cart</Button>
+        setTotal(item.actual_price+total);
+      }}>Add to Cart</Button>
        </div>
        
        </>
