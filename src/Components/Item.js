@@ -20,22 +20,24 @@ export default function Item(props){
  <CardContent>
   <img src={props.data.image}></img>
       <Typography sx={{ fontSize: 14,color:'Black' }} >
-        Name:{props.data.name}
+        {props.data.name}
       </Typography>
       
-      <Typography sx={{fontSize: 14,color:'Blue'  }} >
-      Price:{props.data.actual_price}
+      <Typography sx={{fontSize: 12,color:'Black'  }} >
+      £{props.data.actual_price}
       </Typography >
 
-
-      {props.data.sizes.map((size)=>
+<div className='container_size'>
+{props.data.sizes.map((size)=>
       <>
-      <Typography className='size'>
+      <Typography className='size'sx={{fontSize: 14,color:'Black'  }}>
 {size.size}
 </Typography>
       </>
 
       )}
+</div>
+     
       
 
     </CardContent>

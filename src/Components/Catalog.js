@@ -9,16 +9,23 @@ function Catalog() {
 
   const [data,setData]=useState([]);
   const [cart, setCart] = useState([]);
+
   const [total, setTotal] = useState(0);
 
   useEffect(()=>{
  
   console.log(cart)
-  localStorage.setItem('cart',JSON.stringify(cart));
+  const item = {
+    products: cart,
+    expiry: new Date().getTime() + 1000,
+}
+
+  localStorage.setItem('cart',JSON.stringify(item));
   
   console.log(localStorage.getItem('cart'))
 },[cart])
   const getData=()=>{
+    
     fetch('products.json'
     ,{
       headers : { 
@@ -38,7 +45,9 @@ function Catalog() {
   }
   useEffect(()=>{
     getData()
-    
+    setCart( (cr) => [...cr,JSON.parse(localStorage.getItem("cart"))])
+    setTotal(localStorage.getItem('total'));
+    console.log(cart) 
   },[])
 
   useEffect(()=>{

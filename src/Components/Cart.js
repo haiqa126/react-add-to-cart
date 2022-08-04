@@ -1,5 +1,7 @@
 import React, { Component,useState,useEffect} from 'react';
 import CartItem from './CartItem';
+import NavBar from './NavBar';
+import '../assets/css/Catalog.css';
 
 export default function Cart(){
     const [cart, setCart] = useState([]);
@@ -18,20 +20,26 @@ console.log(localStorage.getItem("total"))
 
    return(
     <>
-    <h1>Welcome to the Cart</h1>
+    <NavBar/>
+    <h3>Welcome to the Cart</h3>
 
-{
+    <div className='container_cart_items'>
+    {
 
-    cart && cart.length>0 && cart.map((item)=>
-      //console.log(item)
-       
-         <CartItem data={item} />
+cart && cart.length>0 && cart.map((item)=>
+  //console.log(item)
+   
+     <CartItem data={item} />
 
 
 
-       )
-     }
-<h2>Your total is:{localStorage.getItem("total")} </h2>
+   )
+ }
+
+    </div>
+
+
+<h3 ><b>Your total is:</b>£{localStorage.getItem("total")} </h3>
     </>
 
   

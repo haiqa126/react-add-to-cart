@@ -6,13 +6,20 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import logo from '../assets/images/logo.jpg';
+import '../assets/css/Catalog.css';
 
 function NavScrollExample() {
   return (
     <Navbar bg="light" expand="lg" sticky="top">
       <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <Navbar.Brand href="/"> <img
+                src={logo}
+                className="logo-image"
+                alt="logo"
+            /></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -37,8 +44,8 @@ function NavScrollExample() {
             </Nav.Link>
           </Nav>
        
-           <Link to="/Cart">Cart</Link>
-          
+           <Link to="/Cart">Cart <FontAwesomeIcon icon={faCoffee} /></Link>
+         
         </Navbar.Collapse>
       </Container>
     </Navbar>

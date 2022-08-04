@@ -18,11 +18,11 @@ export default function CartItem(props){
  <CardContent>
   <img src={props.data.ImageUrl}></img>
       <Typography sx={{ fontSize: 14,color:'Black' }} >
-        Name:{props.data.Name}
+        {props.data.Name}
       </Typography>
       
-      <Typography sx={{fontSize: 14,color:'Blue'  }} >
-      Price:{props.data.Price}
+      <Typography sx={{fontSize: 12,color:'Black'  }} >
+      £{props.data.Price}
       </Typography >
     </CardContent>
      </Card>
