@@ -1,7 +1,6 @@
 import React from 'react';
 import { Fade } from 'react-awesome-reveal';
 import '../assets/css/Catalog.css';
-import haiqa from '../assets/images/haiqa.png';
 import logo from '../assets/images/logo.jpg';
 import { CDBFooter, CDBFooterLink, CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
 
