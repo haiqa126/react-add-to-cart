@@ -2,6 +2,8 @@ import React,{useState,useEffect} from 'react';
 import Item from './Item';
 import '../assets/css/Catalog.css';
 import NavBar from './NavBar';
+import Footer from './Footer';
+
 import Button from '@mui/material/Button';
 
 
@@ -67,15 +69,17 @@ function Catalog() {
         setTotal(item.actual_price+total);
       }}>Add to Cart</Button>
        </div>
-       
+    
        </>
        
        )
      }
+   <Footer/>
     </>
      
     
   );
+  
 }
 
 export default Catalog;

@@ -13,7 +13,7 @@ import '../assets/css/Catalog.css';
 
 function NavScrollExample() {
   return (
-    <Navbar bg="light" expand="lg" sticky="top">
+    <Navbar bg="light" expand="lg" sticky="top" className='bck_red '>
       <Container fluid>
         <Navbar.Brand href="/"> <img
                 src={logo}
